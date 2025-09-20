@@ -16,7 +16,7 @@ public sealed class PriceCalculator : IPriceCalculator
     /// <param name="product">The product to calculate the total price for.</param>
     /// <param name="quantity">The total number of units scanned for this product.</param>
     /// <returns>Total price as a decimal, including any applicable discounts.</returns>
-    public decimal CalculateTotal(Product product, int quantity)
+    public decimal CalculateTotal(ProductModel product, int quantity)
     {
         var volume = product.Volume;
 

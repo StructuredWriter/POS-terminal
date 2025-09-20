@@ -9,7 +9,7 @@ namespace PointOfSale.Services
     /// </summary>
     public sealed class PointOfSaleTerminal
     {
-        private readonly Dictionary<string, Product> _products = new();
+        private readonly Dictionary<string, ProductModel> _products = new();
         private readonly Dictionary<string, int> _productsCart = new();
         private readonly IPriceCalculator _priceCalculator;
 
@@ -27,7 +27,7 @@ namespace PointOfSale.Services
         /// Clears any previously scanned products.
         /// </summary>
         /// <param name="products">List of products with pricing information.</param>
-        public void SetPricing(List<Product> products)
+        public void SetPricing(List<ProductModel> products)
         {
             Reset();
             foreach (var product in products)

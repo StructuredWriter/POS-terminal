@@ -15,9 +15,9 @@ namespace PointsOfSale.Tests
         {
             _terminal = new PointOfSaleTerminal(new PriceCalculator());
             _terminal.SetPricing([
-                new("A", 1.25m, new VolumePrice(3, 3m)),
+                new("A", 1.25m, new VolumePriceModel(3, 3m)),
                 new("B", 4.25m),
-                new("C", 1m, new VolumePrice(6, 5m)),
+                new("C", 1m, new VolumePriceModel(6, 5m)),
                 new("D", 0.75m)
             ]);
         }
@@ -41,16 +41,14 @@ namespace PointsOfSale.Tests
             StringAssert.Contains("not found", ex.Message);
         }
 
-        [Test]
-        public void Reset_ShouldClearScannedProducts()
+        [TestCase("A")]
+        public void Reset_ShouldClearScannedProducts(string code)
         {
-            _terminal.Scan("A");
-            _terminal.Scan("B");
+            _terminal.Scan(code);
 
             _terminal.Reset();
 
             var total = _terminal.GetTotal();
-
             AreEqual(0m, total);
         }
     }

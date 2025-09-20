@@ -4,5 +4,5 @@ namespace PointOfSale.Calculators;
 
 public interface IPriceCalculator
 {
-    decimal CalculateTotal(Product product, int quantity);
+    decimal CalculateTotal(ProductModel product, int quantity);
 }

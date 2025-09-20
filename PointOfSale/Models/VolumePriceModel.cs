@@ -5,5 +5,5 @@
     /// </summary>
     /// <param name="Quantity">The number of units in the volume deal.</param>
     /// <param name="Price">The total price for the volume deal.</param>
-    public readonly record struct VolumePrice(int Quantity, decimal Price);
+    public readonly record struct VolumePriceModel(int Quantity, decimal Price);
 }
